@@ -11,9 +11,6 @@ import * as serviceWorker from './serviceWorker';
 
 // container.appendChild(element);
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 const element = <h1>Info 2019 !</h1>;
 
 const container = document.getElementById('app');
