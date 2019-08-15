@@ -1,3 +1,7 @@
+
+# React-congreso
+Este repositorio pertenece al curso de react.js dictado en el Informatorio.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
