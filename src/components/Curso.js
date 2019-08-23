@@ -12,17 +12,17 @@ class Curso extends React.Component{
                 
                 <div className="course-banner-wrap">
                     <img alt="Course" className="img-responsive miImagen" src={cursoImg}  />
-                    <span className="cat bg-pink">Medicine</span>
+                    <span className="cat bg-pink">{this.props.titulo}</span>
                 </div>
                 <div className="course-detail-wrap">
                     
                     <div className="teacher-wrap">
                         <img alt="Course" className="img-responsive imgTeacher" src={teacherImg} />
-                        <h5><small>with</small> <span>Marry</span></h5>
+                        <h5><small>with</small> <span>{this.props.disertante}</span></h5>
                     </div>
                     <div className="course-content">
-                        <h4><a href="course-single-left.html">Chemical Engineering</a></h4>
-                        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those intereste...</p>
+                        <h4><a href="course-single-left.html"></a></h4>
+                        <p>{this.props.descripcion}</p>
                         <a href="#" className="btn">Apply Now</a>
                     </div>
                 </div>

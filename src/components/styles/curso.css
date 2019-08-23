@@ -1,7 +1,9 @@
-.course-banner-wrap .miImagen{
+.miImagen{
     width: 400px;
-    height: 220px;
-
+    height: 270px;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .imgTeacher{
