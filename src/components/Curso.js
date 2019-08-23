@@ -6,7 +6,7 @@ import './styles/curso.css';
 class Curso extends React.Component{
     render() {
         return (
-            <div className="col-sm-4">
+            
             
             <div className="course-wrapper">
                 
@@ -23,11 +23,11 @@ class Curso extends React.Component{
                     <div className="course-content">
                         <h4><a href="course-single-left.html"></a></h4>
                         <p>{this.props.descripcion}</p>
-                        <a href="#" className="btn">Apply Now</a>
+                        <a href="#" className="btn">Ver info</a>
                     </div>
                 </div>
             </div>
-        </div>
+        
         );
       }
     
