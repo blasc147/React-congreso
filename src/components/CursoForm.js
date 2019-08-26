@@ -3,41 +3,63 @@ import React from 'react';
 
 class CursoForm extends React.Component{
 
+    state = {
+    } ;
 
+    handleChange = e => {
+      this.setState({
+          [e.target.name]: e.target.value,
+      });
+    };
+
+    handleClick = e => {
+      console.log('Click!!!!');
+    };
+
+    handleSubmit = e => {
+      e.preventDefault();
+      console.log('Formulario enviado!');
+      console.log(this.state);
+    };
 
     render() {
         return (
             <div className="widget">
                 <h3 className="widget-title">Formulario</h3>
 
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label>Titulo</label>
                         <input
+                        onChange={this.handleChange}
                         className="form-control"
                         type="text"
-                        name="firstName"
+                        name="titulo"
+                        value = {this.state.titulo}
                         />
                     </div>
                     <div className="form-group">
                         <label>Descripcion</label>
                         <input
+                        onChange={this.handleChange}
                         className="form-control"
                         type="text"
-                        name="firstName"
+                        name="descripcion"
+                        value = {this.state.descripcion}
                         />
                     </div>
                     <div className="form-group">
                         <label>Disertante</label>
                         <input
-                      
+                        onChange={this.handleChange}
                         className="form-control"
                         type="text"
-                        name="firstName"
+                        name="disertante"
+                        value = {this.state.disertante}
                         />
                     </div>
 
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary" onClick={this.handleClick}>
                         Enviar
                     </button>
                     </form>
