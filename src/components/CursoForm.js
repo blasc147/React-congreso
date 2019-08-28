@@ -3,8 +3,8 @@ import React from 'react';
 
 class CursoForm extends React.Component{
 
-    state = {
-    } ;
+    //state = {
+    //} ;
 
     handleChange = e => {
       this.setState({
@@ -31,31 +31,31 @@ class CursoForm extends React.Component{
                     <div className="form-group">
                         <label>Titulo</label>
                         <input
-                        onChange={this.handleChange}
+                        onChange={this.props.onChange}
                         className="form-control"
                         type="text"
                         name="titulo"
-                        value = {this.state.titulo}
+                        value = {this.props.formValues.titulo}
                         />
                     </div>
                     <div className="form-group">
                         <label>Descripcion</label>
                         <input
-                        onChange={this.handleChange}
+                        onChange={this.props.onChange}
                         className="form-control"
                         type="text"
                         name="descripcion"
-                        value = {this.state.descripcion}
+                        value = {this.props.formValues.descripcion}
                         />
                     </div>
                     <div className="form-group">
                         <label>Disertante</label>
                         <input
-                        onChange={this.handleChange}
+                        onChange={this.props.onChange}
                         className="form-control"
                         type="text"
                         name="disertante"
-                        value = {this.state.disertante}
+                        value = {this.props.formValues.disertante}
                         />
                     </div>
 

@@ -15,7 +15,7 @@ import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 
-import App from './App'
+import App from './components/App'
 
 const container = document.getElementById("app");
 

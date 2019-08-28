@@ -5,6 +5,24 @@ import Curso from '../components/Curso'
 import CursoForm from '../components/CursoForm'
 
 class AddCurso extends React.Component{
+    state= {
+        form: {
+            titulo: 'titulo',
+            descripcion: 'descripcion',
+            disertante:'',
+        },
+    };
+
+    handleChange = e => {
+        this.setState({
+            form: {
+                ...this.state.form,
+                [e.target.name]: e.target.value,
+            }
+        }
+
+        )
+    };
     render() {
         return (
             <div>
@@ -17,12 +35,17 @@ class AddCurso extends React.Component{
                 <div className="row">
                         <div className="col-4">
                             <Curso
-                                titulo="El titulo" descripcion="la descripcion"
+                                titulo={this.state.form.titulo}
+                                descripcion={this.state.form.descripcion}
+                                disertante = {this.state.form.disertante}
                             />
                         </div>
 
                         <div className="col-8">
-                            <CursoForm />
+                            <CursoForm 
+                                onChange={this.handleChange}
+                                formValues={this.state.form}
+                                />
                         </div>
                 </div>
             </div>
