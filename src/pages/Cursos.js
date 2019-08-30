@@ -11,32 +11,30 @@ class Cursos extends React.Component{
             titulo: 'titulo',
             descripcion: 'Freda',
             disertante: 'Grady',
-            img: 'Leann_Berge@gmail.com',
           },
           {id : '2de30c42-9deb-40fc-a41f-05e62b5939a7',
             titulo: 'titulo',
             descripcion: 'Major',
             disertante: 'Rodriguez',
-            img: 'Ilene66@hotmail.com',
           },
           {id : '63c03386-33a2-4512-9ac1-354ad7bec5e9',
             titulo: 'titulo',
             descripcion: 'Daphney',
             disertante: 'Torphy',
-            img: 'Ron61@hotmail.com',
           },
         ],
       };
     render() {
         return (
-            <div className="sticky-menu-deactive">
-                <NavBar />
+          <React.Fragment className="sticky-menu-deactive">
+            
 
                 <Header titulo="Charlas" descripcion="Lista de las charlas del congreso" ></Header>
 
                 <ListaCursos cursos={this.state.data} />
             
-            </div>
+            
+            </React.Fragment>
         );
       }
     

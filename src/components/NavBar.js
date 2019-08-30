@@ -1,6 +1,7 @@
 import React from 'react';
 import navImg from './images/hospitalitaliano.png'
 import './styles/navbar.css';
+import {Link} from 'react-router-dom';
 
 class NavBar extends React.Component{
     render() {
@@ -26,9 +27,9 @@ class NavBar extends React.Component{
                             
                             </li>
                             <li className="mega-menu-item mega-menu-fullwidth mega-menu-halfwidth">
-                                <a href="#">
+                                <Link to="/cursos">
                                     Cursos						
-                                    </a>
+                                    </Link>
                             
                             </li>
                             <li className="mega-menu-item mega-menu-fullwidth mega-menu-halfwidth">

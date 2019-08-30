@@ -25,7 +25,7 @@ class AddCurso extends React.Component{
     };
     render() {
         return (
-            <div>
+            <React.Fragment>
             <NavBar />
 
             <Header titulo="Agregar charla" descripcion="Formulario para agregar charla" ></Header>
@@ -52,7 +52,7 @@ class AddCurso extends React.Component{
             </div>
 
 
-        </div>
+            </React.Fragment>
         );
       }
     
