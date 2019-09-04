@@ -39,9 +39,9 @@ class NavBar extends React.Component{
                             
                             </li>
                             <li className="mega-menu-item mega-menu-fullwidth mega-menu-halfwidth">
-                                <a href="#">
-                                    Cronograma						
-                                    </a>
+                            <Link to="/curso/new">
+                                    Cursos						
+                                    </Link>
                             
                             </li>
                             <li className="dropdown mega-menu-item mega-menu-fullwidth mega-menu-halfwidth">
