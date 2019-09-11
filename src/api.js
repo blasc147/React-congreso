@@ -24,8 +24,9 @@ async function callApi(endpoint, options = {}) {
 const api = {
   cursos: {
     list() {
-     //simular casos en los que no hay datos y hay error   
-    //return [];
+     //simular casos en los que no hay datos y hay error
+     //throw new Error('Not found');   
+      //return [];
       return callApi('/cursos');
     },
     create(curso) {

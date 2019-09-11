@@ -1,49 +1,41 @@
 import React from 'react';
-import ListaCursos from '../components/listaCursos'
-import Header from '../components/Header'
-import data from '../data.json'
+import ListaCursos from '../components/listaCursos';
+import Header from '../components/Header';
+import api from '../api';
 
 class Cursos extends React.Component{
     
-    constructor(props){
-      super(props);
-      console.log('1. constructor() ');
-
-      this.state = {
-        data: [ ],
-      };
-    }
+    state = {
+      loading: true,
+      error: null, 
+      data: undefined
+    };
 
     componentDidMount(){
-      console.log('3. componentDidMount()');
-
-      this.timeOut = setTimeout(() => {
-        this.setState({
-          data : [ data ],
-        });
-      }, 3000);
+      this.getCursos();
+      
     }
 
-    componentDidUpdate(prevProps, prevState){
-      console.log('5. componentDidUpdate');
-      console.log({
-        propsAnteriores : prevProps,
-        stateAnterior: prevState,
-      });
+    getCursos = async() => {
+        this.setState({ loading: true, error:null});
+        
+        try{
+            const data = await api.cursos.list();
+            this.setState({loading:false, data: data});
+        }catch(error){
+            this.setState({loading:false, error:error});
+        }
+    };
 
-      console.log({
-        propsActuales: this.props,
-        stateActual: this.state,
-      });
-    }
-
-    componentWillUnmount(){
-      console.log('6. componentWillUnmount');
-      clearTimeout(this.timeOut);
-    }
-    
     render() {
-        console.log('2/4. render()');
+
+        if(this.state.loading === true){
+          return 'Loading...';
+        }
+
+        if (this.state.error) {
+          return `Error: ${this.state.error.message}`;
+        }
         return (
           <React.Fragment className="sticky-menu-deactive">
             
