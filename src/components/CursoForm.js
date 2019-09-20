@@ -12,22 +12,13 @@ class CursoForm extends React.Component{
       });
     };
 
-    handleClick = e => {
-      console.log('Click!!!!');
-    };
-
-    handleSubmit = e => {
-      e.preventDefault();
-      console.log('Formulario enviado!');
-      console.log(this.state);
-    };
 
     render() {
         return (
             <div className="widget">
                 <h3 className="widget-title">Formulario</h3>
 
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <label>Titulo</label>
                         <input
@@ -36,7 +27,7 @@ class CursoForm extends React.Component{
                         type="text"
                         name="titulo"
                         value = {this.props.formValues.titulo}
-                        />
+                        required />
                     </div>
                     <div className="form-group">
                         <label>Descripcion</label>
@@ -58,6 +49,12 @@ class CursoForm extends React.Component{
                         value = {this.props.formValues.disertante}
                         />
                     </div>
+
+                    {this.props.error && (
+                        <div className="alert alert-danger" role="alert">
+                        Ocurrio un error: {this.props.error.message}
+                      </div>
+                    )}
 
                     <button className="btn btn-primary" onClick={this.handleClick}>
                         Enviar

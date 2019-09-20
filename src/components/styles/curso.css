@@ -10,3 +10,17 @@
     width: 100px;
     height: 100px;
 }
+
+.cardCol{
+    position: relative;
+    width: 100%;
+    padding: 10px 10px 10px 10px;;
+
+}
+
+@media (min-width: 576px){
+    .cardCol {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}

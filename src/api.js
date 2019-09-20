@@ -34,9 +34,11 @@ const api = {
         method: 'POST',
         body: JSON.stringify(curso),
       });
+      //throw new Error('500 Server Not Found');
     },
     read(cursoId) {
-      return callApi(`/cursos/${cursoId}`);
+      //throw new Error('Not found');  
+      return callApi(`/curso/${cursoId}`);
     },
     update(cursoId, updates) {
       return callApi(`/cursos/${cursoId}`, {

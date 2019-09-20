@@ -2,6 +2,8 @@ import React from 'react';
 import cursoImg from './images/course-02.jpg'
 import teacherImg from './images/thumb-teacher-02.jpg'
 import './styles/curso.css';
+import {Link} from 'react-router-dom';
+
 
 class Curso extends React.Component{
     render() {
@@ -23,7 +25,12 @@ class Curso extends React.Component{
                     <div className="course-content">
                         <h4><a href="course-single-left.html"></a></h4>
                         <p>{this.props.descripcion}</p>
-                        <a href="#" className="btn">Ver info</a>
+                        <Link className="btn" to={{
+                            pathname: `/curso/${this.props.id}`,
+                            state: {
+                            fromNotifications: true
+                            }
+                        }}>Ver Info</Link>
                     </div>
                 </div>
             </div>

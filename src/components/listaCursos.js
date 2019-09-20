@@ -1,5 +1,6 @@
 import React from 'react';
 import Curso from './Curso'
+import './styles/curso.css';
 
 class ListaCursos extends React.Component {
   
@@ -21,11 +22,13 @@ class ListaCursos extends React.Component {
   
               {this.props.cursos.map(curso => {
                 return (
-                  <div className="col-sm-4" key={curso.id}>
+                  <div className="cardCol" key={curso.id}>
                       <Curso  
                         titulo={curso.titulo} 
                         disertante={curso.disertante} 
-                        descripcion={curso.descripcion}>
+                        descripcion={curso.descripcion}
+                        id = {curso.id}>
+                        
                       </Curso>
                   </div>
                 );

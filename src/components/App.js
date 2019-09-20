@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Cursos from '../pages/Cursos'
 import AddCurso from '../pages/AddCurso'
+import DetallePage from '../pages/DetallePage'
 //import Home from '../pages/Home'
 import Layout from './Layout'
 import NotFound from './NotFound'
@@ -12,8 +13,9 @@ function App() {
     <BrowserRouter>
       <Layout>
       <Switch>
-        <Route path="/cursos" component={Cursos} />
-        <Route path="/curso/new" component={AddCurso} />
+        <Route exact path="/cursos" component={Cursos} />
+        <Route exact path="/curso/new" component={AddCurso} />
+        <Route exact path="/curso/:handle" component={DetallePage} />
         <Route path="/404" component={NotFound} />
         <Redirect from="" to="/cursos"/>
       </Switch>

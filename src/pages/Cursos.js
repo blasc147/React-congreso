@@ -1,6 +1,8 @@
 import React from 'react';
 import ListaCursos from '../components/listaCursos';
 import Header from '../components/Header';
+import PageLoading from '../components/PageLoading';
+import PageError from '../components/PageError';
 import api from '../api';
 
 class Cursos extends React.Component{
@@ -30,12 +32,17 @@ class Cursos extends React.Component{
     render() {
 
         if(this.state.loading === true){
-          return 'Loading...';
+          return (
+            <PageLoading></PageLoading>
+          );
         }
 
         if (this.state.error) {
-          return `Error: ${this.state.error.message}`;
+          return (
+            <PageError></PageError>
+          );
         }
+
         return (
           <React.Fragment className="sticky-menu-deactive">
             

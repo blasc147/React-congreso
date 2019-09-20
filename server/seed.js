@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const faker = require('faker');
-const md5 = require('md5');
+//const md5 = require('md5');
 
 function createCursos(limit = 5) {
   const result = [];
