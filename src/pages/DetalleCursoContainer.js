@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import DetalleCurso from "../components/DetalleCurso.js";
+import DetalleCurso from "./DetalleCurso.js";
 import api from '../api';
 import Header from '../components/Header';
 import PageLoading from '../components/PageLoading';
@@ -8,7 +8,7 @@ import PageError from '../components/PageError';
 
 
 
-class DetallePage extends React.Component {
+class DetalleCursoContainer extends React.Component {
     state = { 
       loading: true,
       error:null,
@@ -41,12 +41,13 @@ class DetallePage extends React.Component {
     };
 
     handleOpenModal = e => {
-      this.setState({ modalIsOpen: true });
-    };
-  
+      this.setState({ modalIsOpen : true});
+    }
+
     handleCloseModal = e => {
-      this.setState({ modalIsOpen: false });
-    };
+      this.setState({ modalIsOpen : false});
+    }
+
   
     render() {
         if(this.state.loading === true){
@@ -69,11 +70,14 @@ class DetallePage extends React.Component {
         <Header titulo={this.state.data.titulo} ></Header>
 
         <DetalleCurso 
-         onCloseModal={this.handleCloseModal}
-         onOpenModal={this.handleOpenModal}
-         modalIsOpen={this.state.modalIsOpen}
-         curso={this.state.data} 
-         />
+            curso={this.state.data}
+            modalIsOpen={this.state.modalIsOpen}
+            onOpenModal={this.handleOpenModal}
+            onCloseModal={this.handleCloseModal}
+
+        />
+
+
 
 
         </React.Fragment>
@@ -81,4 +85,4 @@ class DetallePage extends React.Component {
     }
   }
 
-export default DetallePage;
+export default DetalleCursoContainer;
