@@ -13,6 +13,7 @@ class DetallePage extends React.Component {
       loading: true,
       error:null,
       data: { },
+      modalIsOpen: false,
         };
 
     componentDidMount(){
@@ -23,20 +24,28 @@ class DetallePage extends React.Component {
         this.setState({ loading:true, error:null});
        
         try{
-            const response = await api.cursos.read(this.props.match.params);
-            const data = await response.json();
+            const data = await api.cursos.read(this.props.match.params.handle);
+            
+            
+            
             this.setState({
                 loading:false,
                 data:  data ,    
             })
-            console.log(data);
-
 
         }catch(error){
           console.log("error en la pagina");
            this.setState({ loading:false, error:error });
         }
 
+    };
+
+    handleOpenModal = e => {
+      this.setState({ modalIsOpen: true });
+    };
+  
+    handleCloseModal = e => {
+      this.setState({ modalIsOpen: false });
     };
   
     render() {
@@ -59,7 +68,12 @@ class DetallePage extends React.Component {
 
         <Header titulo={this.state.data.titulo} ></Header>
 
-        <DetalleCurso curso={this.state.data} />
+        <DetalleCurso 
+         onCloseModal={this.handleCloseModal}
+         onOpenModal={this.handleOpenModal}
+         modalIsOpen={this.state.modalIsOpen}
+         curso={this.state.data} 
+         />
 
 
         </React.Fragment>

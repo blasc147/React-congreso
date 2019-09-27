@@ -38,7 +38,7 @@ const api = {
     },
     read(cursoId) {
       //throw new Error('Not found');  
-      return callApi(`/curso/${cursoId}`);
+      return callApi(`/cursos/${cursoId}`);
     },
     update(cursoId, updates) {
       return callApi(`/cursos/${cursoId}`, {

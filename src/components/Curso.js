@@ -31,6 +31,8 @@ class Curso extends React.Component{
                             fromNotifications: true
                             }
                         }}>Ver Info</Link>
+
+                        <Link className="btn" to={`/curso/${this.props.id}/edit`}>Editar</Link>
                     </div>
                 </div>
             </div>

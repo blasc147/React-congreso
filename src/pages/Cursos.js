@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import PageLoading from '../components/PageLoading';
 import PageError from '../components/PageError';
 import api from '../api';
+import loader from '../images/default/preloader-color.gif'
+
 
 class Cursos extends React.Component{
     
@@ -15,6 +17,8 @@ class Cursos extends React.Component{
 
     componentDidMount(){
       this.getCursos();
+
+      this.intervalId =setInterval(this.getCursos, 5000);
       
     }
 
@@ -28,10 +32,13 @@ class Cursos extends React.Component{
             this.setState({loading:false, error:error});
         }
     };
+    componentWillUnmount(){
+      clearInterval(this.intervalId);
+    }
 
     render() {
 
-        if(this.state.loading === true){
+        if(this.state.loading === true && !this.state.data){
           return (
             <PageLoading></PageLoading>
           );
@@ -51,7 +58,7 @@ class Cursos extends React.Component{
 
                 <ListaCursos cursos={this.state.data} />
             
-            
+                {this.state.loading && <p className="text-center">Loading...</p> }
             </React.Fragment>
         );
       }
