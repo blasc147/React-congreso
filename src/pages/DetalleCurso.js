@@ -4,7 +4,7 @@ import api from '../api';
 import Header from '../components/Header';
 import PageLoading from '../components/PageLoading';
 import PageError from '../components/PageError';
-import Modal from '../components/Modal';
+import DeleteModal from '../components/DeleteModal';
 
 
 
@@ -62,7 +62,11 @@ function DetalleCurso(props){
                 <button onClick={props.onOpenModal} type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                     Eliminar
                     </button>
-                <Modal isOpen={props.modalIsOpen} onClose={props.onCloseModal}></Modal>
+                <DeleteModal 
+                isOpen={props.modalIsOpen} 
+                onClose={props.onCloseModal}
+                onDeleteCurso={props.onDeleteCurso}
+                > </DeleteModal>
                       </div>
                     </div>
                   </div>

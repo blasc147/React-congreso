@@ -42,11 +42,26 @@ class DetalleCursoContainer extends React.Component {
 
     handleOpenModal = e => {
       this.setState({ modalIsOpen : true});
-    }
+    };
 
     handleCloseModal = e => {
       this.setState({ modalIsOpen : false});
-    }
+    };
+
+    handleDeleteCurso = async e => {
+      console.log("ver");
+      this.setState({ loading:true, error:false});
+
+      try {
+        await api.cursos.remove(this.props.match.params.handle);
+        this.setState({loading:false});
+        this.props.history.push('/cursos');
+
+      } catch (error) {
+        this.setState({ loading:false, error:error });
+        
+      }
+    };
 
   
     render() {
@@ -74,6 +89,7 @@ class DetalleCursoContainer extends React.Component {
             modalIsOpen={this.state.modalIsOpen}
             onOpenModal={this.handleOpenModal}
             onCloseModal={this.handleCloseModal}
+            onDeleteCurso={this.handleDeleteCurso}
 
         />
 
