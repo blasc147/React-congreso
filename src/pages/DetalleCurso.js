@@ -6,12 +6,26 @@ import PageLoading from '../components/PageLoading';
 import PageError from '../components/PageError';
 import DeleteModal from '../components/DeleteModal';
 
+function useIncrementarCount(max){
+  const [count, setCount]= React.useState(0);
+
+  if(count > max){
+    setCount(0);
+  }
+  
+  return [count, setCount];
+}
+
 
 
 function DetalleCurso(props){
-            return(
-                <div role="main" className="main">
-	            <div className="page-default bg-grey typo-dark">
+
+  const [count, setCount]= useIncrementarCount(5);
+  console.log([count, setCount]);
+
+  return(
+    <div role="main" className="main">
+	  <div className="page-default bg-grey typo-dark">
 		
 		<div className="container">
 		
@@ -59,14 +73,24 @@ function DetalleCurso(props){
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed. Optio, reprehenderit, ex.Repellendus, quaerat beatae nulla debitis vitae temporibus enim sed. Optio, reprehenderit, ex .Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, quaerat beatae nulla debitis</p>
                 </div>
                       </div>
-                <button onClick={props.onOpenModal} type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+              <div className="row"> 
+
+                      <button onClick={props.onOpenModal} type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                     Eliminar
                     </button>
-                <DeleteModal 
-                isOpen={props.modalIsOpen} 
-                onClose={props.onCloseModal}
-                onDeleteCurso={props.onDeleteCurso}
-                > </DeleteModal>
+
+                    <button onClick={() => {
+                       setCount(count+1);
+                    }} type="button" class="btn btn-primary ml-4">
+                    Incrementar : {count}
+                    </button>
+                      </div>
+                
+                        <DeleteModal 
+                        isOpen={props.modalIsOpen} 
+                        onClose={props.onCloseModal}
+                        onDeleteCurso={props.onDeleteCurso}
+                        > </DeleteModal>
                       </div>
                     </div>
                   </div>
